@@ -31,7 +31,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     BrowserAnimationsModule,
     NgxSpinnerModule
   ],
-  providers: [ChatGptCompletionService,ChatGptImageService,{provide:"baseurl",useValue:"https://gptbasedapi"}],
+  providers: [ChatGptCompletionService,ChatGptImageService,{provide:"baseurl",useValue:"https://gptbasedapi/"}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
