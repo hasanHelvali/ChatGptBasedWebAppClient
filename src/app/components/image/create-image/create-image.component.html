@@ -1,3 +1,5 @@
+<body>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.min.css" integrity="sha512-FEQLazq9ecqLN5T6wWq26hCZf7kPqUbFC9vsHNbXMJtSZZWAcbJspT+/NEAQkBfFReZ8r9QlA9JHaAuo28MTJA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <form class="form-group p-1 bg-light"  #frm="ngForm" (ngSubmit)="startRequest(frm,textarea.value,selectSize,selectPiece)" >
     <!-- Prompt -->
@@ -30,6 +32,7 @@
         </div>
     </div>
 </form>
+</body>
 
   <div *ngIf="selectSize.value=='256' && request">
     <ng-container  *ngTemplateOutlet="pictures256"></ng-container>

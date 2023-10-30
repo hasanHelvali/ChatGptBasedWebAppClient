@@ -1,4 +1,23 @@
-<div class="container bg-light" >
-  Bu arayüz ChatGpt Web Api altyapısını kullanan bir baska api yi tüketerek hizmet veren bir arayüzdür.
-</div>
-<ngx-spinner type="ball-beat"></ngx-spinner>
+<body class="d-flex">
+  <div class="dessign  ">
+    <div class="">
+      <div class="text-white align-items-center justify-content-center">
+        <div class="row text-center">
+          <div class="col-5 m-3 p-3 bg-secondary opacity-75  ">
+            <p class="text-white  ">
+              Bana bir sey sormak ister misin? Istedigin her şeyi sorabilirsin. Hemen Dene...
+            </p>
+            <button routerLink="/completion" class="btn btn-dark">Chat Completion</button>
+          </div>
+          <div class="col-5 m-3 p-3 bg-secondary opacity-75">
+            <p class="text-white">
+              Senin icin bir göruntu olusturabilirim. Tarif etmen yeterli. Hemen Dene...
+            </p>
+            <button routerLink="/image" class="btn btn-dark ">Create Image</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
