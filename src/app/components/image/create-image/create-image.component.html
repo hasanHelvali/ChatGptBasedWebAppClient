@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.min.css" integrity="sha512-FEQLazq9ecqLN5T6wWq26hCZf7kPqUbFC9vsHNbXMJtSZZWAcbJspT+/NEAQkBfFReZ8r9QlA9JHaAuo28MTJA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<form class="form-group p-1 bg-light"  #frm="ngForm" (ngSubmit)="startRequest(frm,textarea.value,selectSize,selectPiece)" >
+    <!-- Prompt -->
+    <div class="row ">
+      <div class="col-9">
+        <div class="border">
+          <textarea ngModel #textarea name="Promt Ekranı" id="textArea" cols="25" rows="3" autofocus form="reactive-from"
+          maxlength="500" placeholder="Can You Describe the Picture You Want? " style="resize: none; height:100%; width: 100% ; border: none;"
+          (keydown.enter)="startRequest(frm,textarea.value,selectSize,selectPiece)" required disabled="{{disable}}"></textarea>
+        </div>
+      </div>
+
+      <div class="col-1 text-center" >
+        <span >Size</span>
+        <select #selectSize name="size" id="size" class="form-select" ngModel required disabled="{{disable}}" >Size
+          <option *ngFor="let item of sizeList" value="{{item}}">{{item}}X{{item}}</option>
+        </select>
+      </div>
+
+      <!-- piece -->
+        <div class="col-1 text-center" >
+          <span >Piece</span>
+          <select #selectPiece name="piece" id="piece" class="form-select" ngModel required disabled="{{disable}}">
+            <option *ngFor="let item of pieceList" value="{{item}}" >{{item}}</option>
+          </select>
+        </div>
+        <div class="col-1 m-auto">
+          <button type="submit" class="btn btn-warning " (submit)="startRequest(frm,textarea.value,selectSize,selectPiece)"
+           [disabled]="disable">Generate</button>
+        </div>
+    </div>
+</form>
+
+  <div *ngIf="selectSize.value=='256' && request">
+    <ng-container  *ngTemplateOutlet="pictures256"></ng-container>
+    <button (click)="btn()" class="btn btn-warning d-flex m-auto">New Request</button>
+  </div>
+  <div *ngIf="selectSize.value=='512' && request">
+    <ng-container  *ngTemplateOutlet="pictures512"></ng-container>
+    <button (click)="btn()" class="btn btn-warning d-flex m-auto">New Request</button>
+
+  </div>
+  <div *ngIf="selectSize.value=='1024' && request">
+    <ng-container *ngTemplateOutlet="pictures1024"></ng-container>
+    <button (click)="btn()" class="btn btn-warning d-flex m-auto">New Request</button>
+  </div>
+
+  <ng-template #pictures256>
+    <div class="row align-items-center justify-content-center m-1 p-1 mt-2 text-center bg-light border">
+      <div class="col-3 mt-2" *ngFor="let item of pictureLinks">
+        <div class="container">
+          <img src="{{item}}" class="card-img-top img256">
+          <div>
+            <a href="{{item}}" download class="btn btn-primary text-center m-1 p-1"><i class="fa-solid fa-download fa-md"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #pictures512>
+    <div class="row align-items-center justify-content-center m-1 p-1 mt-2 text-center bg-light border">
+      <div class="col-5 mt-2" *ngFor="let item of pictureLinks">
+        <div class="container">
+          <img src="{{item}}" class="card-img-top img512">
+          <div>
+            <a href="{{item}}" class="btn btn-primary text-center m-1 p-1" download><i class="fa-solid fa-download fa-md"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+</ng-template>
+
+<ng-template #pictures1024>
+  <div class="row align-items-center justify-content-center m-1 p-1 mt-2 text-center bg-light border">
+    <div class="col-12 mt-2" *ngFor="let item of pictureLinks">
+      <div class="container" >
+        <img src="{{item}}" class="card-img-top img1024">
+        <div>
+          <a href="{{item}}" class="btn btn-primary text-center m-1 p-1" download><i class="fa-solid fa-download fa-md"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

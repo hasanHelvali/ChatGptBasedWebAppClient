@@ -1,0 +1,22 @@
+<form #frm="ngForm">
+  <div class="row m-1 align-items-center justify-content-center">
+    <div class="col-11 ">
+      <textarea [(ngModel)]="clear" name="textArea"  #textarea id="textArea" cols="25" rows="3" autofocus
+      maxlength="500" style="resize: none; height:100%; width: 100% ;"
+      (keydown.enter)="startRequest(frm,textarea.value)" required placeholder="You Can Ask Me Whatever You Want..."
+      [disabled]="disable" >{{clear}}</textarea>
+  </div>
+  <div class="col-1 ">
+    <button class="btn btn-warning" (click)="startRequest(frm,textarea.value)" [disabled]="disable" >Generate</button>
+  </div>
+</div>
+</form>
+
+
+<div class="d-flex align-items-center justify-content-center">
+  <textarea *ngIf="cevap" class="bg-light m-5 p-2" cols="200" rows="10"
+  style="width: 100%; border: 0; resize: none; " maxlength="1000" disabled="true">{{cevap}}</textarea>
+</div>
+<div *ngIf="disable" class="d-flex align-items-center justify-content-center">
+  <button class="btn btn-warning" (click)="newRequest(frm)">New Request</button>
+</div>

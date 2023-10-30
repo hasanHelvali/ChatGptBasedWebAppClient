@@ -1,0 +1,21 @@
+.dessign{
+  border: 5px;
+  border-color : black;
+}
+
+.img256{
+  width: 256px;
+  height: 256px;
+  border-radius: 5px;
+}
+
+.img512{
+  width: 512px;
+  height: 512px;
+  border-radius: 5px;
+}
+.img1024{
+  width: 1024px;
+  height: 1024px;
+  border-radius: 5px;
+}
