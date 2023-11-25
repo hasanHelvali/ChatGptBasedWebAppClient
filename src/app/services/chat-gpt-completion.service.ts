@@ -13,7 +13,7 @@ export class ChatGptCompletionService {
 
   getCompletion(prompt:string):Observable<string>{
     const headers=new HttpHeaders({'Content-Type':'application/json'});
-    return this.httpClient.post<any>(this.url + "completion", JSON.stringify(prompt),{headers});
+    return this.httpClient.post<any>(this.url + "/completion", JSON.stringify(prompt),{headers});
 
   }
 }

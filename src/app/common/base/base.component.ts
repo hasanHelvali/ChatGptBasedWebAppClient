@@ -8,9 +8,7 @@ export class BaseComponent {
   }
 
   showSpinner(){
-    // this.spinner.show("spinner1",{type:"line-spin-fade",size:"large"});
     this.spinner.show();
-
   }
   hideSpinner(){
     setTimeout(() => {

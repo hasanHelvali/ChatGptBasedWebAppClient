@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BaseComponent } from 'src/app/common/base/base.component';
@@ -9,12 +9,17 @@ import { ChatGptCompletionService, Prompt } from 'src/app/services/chat-gpt-comp
   templateUrl: './completion-text.component.html',
   styleUrls: ['./completion-text.component.css']
 })
-export class CompletionTextComponent extends BaseComponent {
+export class CompletionTextComponent extends BaseComponent implements OnInit {
   disable:boolean=false;
   cevap:string="";
   clear="";
   constructor(spinner:NgxSpinnerService,private completionService:ChatGptCompletionService) {
     super(spinner);
+  }
+  ngOnInit(): void {
+
+    this.showSpinner();
+    this.hideSpinner();
   }
   startRequest(frm:NgForm,prompt:string){
     if(!frm.valid){

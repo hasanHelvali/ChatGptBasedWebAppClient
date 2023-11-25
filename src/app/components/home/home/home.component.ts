@@ -8,14 +8,11 @@ import { BaseComponent } from 'src/app/common/base/base.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent extends BaseComponent {
-  /**
-   *
-   */
   constructor(spinner:NgxSpinnerService) {
     super(spinner);
-// this.showSpinner()
-// this.hideSpinner()
   }
-    ngOnInit(): void {
+  ngOnInit(): void {
+    this.showSpinner();
+    this.hideSpinner();
   }
 }
