@@ -8,7 +8,7 @@
         <div class="border">
           <textarea ngModel #textarea name="Promt Ekranı" id="textArea" cols="25" rows="3" autofocus form="reactive-from"
           maxlength="500" placeholder="Can You Describe the Picture You Want? " style="resize: none; height:100%; width: 100% ; border: none;"
-          (keydown.enter)="startRequest(frm,textarea.value,selectSize,selectPiece)" required disabled="{{disable}}"></textarea>
+          (keydown.enter)="startRequest(frm,textarea.value,selectSize,selectPiece)" required disabled="{{disable}}" [value]="_prompt"></textarea>
         </div>
       </div>
 
@@ -53,9 +53,6 @@
       <div class="col-3 mt-2" *ngFor="let item of pictureLinks">
         <div class="container">
           <img src="{{item}}" class="card-img-top img256">
-          <div>
-            <a href="{{item}}" download class="btn btn-primary text-center m-1 p-1"><i class="fa-solid fa-download fa-md"></i></a>
-          </div>
         </div>
       </div>
     </div>
@@ -66,9 +63,6 @@
       <div class="col-5 mt-2" *ngFor="let item of pictureLinks">
         <div class="container">
           <img src="{{item}}" class="card-img-top img512">
-          <div>
-            <a href="{{item}}" class="btn btn-primary text-center m-1 p-1" download><i class="fa-solid fa-download fa-md"></i></a>
-          </div>
         </div>
       </div>
     </div>
@@ -79,9 +73,6 @@
     <div class="col-12 mt-2" *ngFor="let item of pictureLinks">
       <div class="container" >
         <img src="{{item}}" class="card-img-top img1024">
-        <div>
-          <a href="{{item}}" class="btn btn-primary text-center m-1 p-1" download><i class="fa-solid fa-download fa-md"></i></a>
-        </div>
       </div>
     </div>
   </div>

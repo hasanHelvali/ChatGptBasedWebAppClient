@@ -16,6 +16,7 @@ export class CreateImageComponent extends BaseComponent implements OnInit {
    selectedSize:number;
    request:boolean=false;
    disable:boolean=false;
+   _prompt:any;
   constructor(spinner:NgxSpinnerService,private builder:FormBuilder, private imageService:ChatGptImageService) {
     super(spinner);
     }
@@ -25,6 +26,7 @@ export class CreateImageComponent extends BaseComponent implements OnInit {
       this.hideSpinner();
     }
     startRequest(form:NgForm,prompt:any,size:HTMLSelectElement,piece:HTMLSelectElement){
+      this._prompt=prompt
       this.request=false;
       this.selectedSize=+size.value;
       this.pictureLinks=[];
@@ -33,7 +35,7 @@ export class CreateImageComponent extends BaseComponent implements OnInit {
         return;
       }
       this.showSpinner();
-      this.imageService.getImage({Prompt:prompt,Piece:+piece.value,Size:+size.value})
+      this.imageService.getImage({Prompt:this._prompt,Piece:+piece.value,Size:+size.value})
       .subscribe({
         next:(data)=>{
 
@@ -54,10 +56,7 @@ export class CreateImageComponent extends BaseComponent implements OnInit {
       this.disable=false;
       this.pictureLinks=[]
       this.request=false;
-
-    }
-    download(url:string){
-      console.log(url);
+      this._prompt="";
 
     }
 }

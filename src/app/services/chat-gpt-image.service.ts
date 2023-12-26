@@ -11,6 +11,6 @@ export class ChatGptImageService {
 
 
   getImage(image:Image):Observable<any>{
-    return this.httpClient.post<Array<string>>((this.url+"image").replace("\n","").replace(" ",""),image);
+    return this.httpClient.post<Array<string>>((this.url+"/image").replace("\n","").replace(" ",""),image);
   }
 }
